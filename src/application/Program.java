@@ -1,5 +1,6 @@
 package application;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +31,30 @@ public class Program {
 			System.out.println(sellers);
 		}
 		
+		System.out.println("================ TEST 3 ================");
 		
+		List<Seller> list1 = new ArrayList<>();
+		list1= sellerDao.findAll();
+		for(Seller sellers : list1) {
+			System.out.println(sellers);
+		}
+		
+		System.out.println("================ TEST 4 ================");
+		
+		//Seller newSeller = new Seller(null, "maria", "maria@gmail.com", new Date(0), 5000.0, dep);
+		//sellerDao.insert(newSeller);
+		//System.out.println("Inserted, new id = " + newSeller.getId());
+		
+		
+		System.out.println("================ TEST 5 ================");
+		seller = sellerDao.findById(10);
+		seller.setName("Louis");
+		seller.setEmail("louis@gmail.com");
+		sellerDao.update(seller);
+		
+		System.out.println("================ TEST 6 ================");
+	
+		sellerDao.deleteById(12);
+		}
 	}
-}
+
